@@ -1,0 +1,27 @@
+// 在“控制面板”区域新增一个输入框
+// <textarea id="hex-input" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-emerald-500 font-mono text-xs h-32" placeholder="在此粘贴500个HEX..."></textarea>
+
+// 核心逻辑升级：通过 HEX 反向印证
+function runGenerationFromHex() {
+    const hexInput = document.getElementById('hex-input').value;
+    const inputHexArray = hexInput.split(/\s+/).filter(h => h.length > 0);
+    
+    const uniqueSet = new Set();
+    const finalResults = [];
+
+    inputHexArray.forEach(hex => {
+        // 1. 将 HEX 转回 十进制数字
+        const phoneDecimal = parseInt(hex, 16);
+        const phoneStr = phoneDecimal.toString();
+
+        // 2. 校验区号是否在合法休斯顿号段 (713, 214, 469, 972, 945)
+        const areaCode = phoneStr.substring(0, 3);
+        if (areaCodes.includes(areaCode) && phoneStr.length === 10) {
+            if (!uniqueSet.has(hex)) {
+                uniqueSet.add(hex);
+                finalResults.push({ hex, rawPhone: phoneStr });
+            }
+        }
+    });
+    // 然后将 finalResults 更新到 UI
+}
