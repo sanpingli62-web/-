@@ -33,11 +33,11 @@
 
     <script>
         lucide.createIcons();
+        document.getElementById('generate-btn').onclick = () => {
         const count = Math.min(document.getElementById('quantity').value, 500);
-
-            const count = document.getElementById('quantity').value;
-            const container = document.getElementById('output-container');
+         const container = document.getElementById('output-container');
             container.innerHTML = `<p class="text-red-500">正在通过红色通道演算 ${count} 个号码...</p>`;
+
             
             // 这里保留了核心逻辑的结构
             setTimeout(() => {
