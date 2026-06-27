@@ -1,15 +1,36 @@
-{
-  "name": "Houston Hex Gen",
-  "short_name": "HexGen",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#050b14",
-  "theme_color": "#050b14",
-  "icons": [
-    {
-      "src": "icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
-}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>休斯顿高真16位进制号码生成引擎</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050b14; }
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
+        .custom-glow { box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.15); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.4); border-radius: 4px; }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl text-center">
+        <h1 class="text-3xl font-extrabold text-white mb-6">休斯顿高保真号码生成系统</h1>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 custom-glow">
+            <button id="generate-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg">开始生成数据</button>
+        </div>
+        <div id="output-container" class="mt-6 bg-slate-950 p-4 rounded-xl border border-slate-800 h-96 overflow-y-auto mono-font text-sm text-left"></div>
+    </div>
+    <script>
+        lucide.createIcons();
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            const container = document.getElementById('output-container');
+            container.innerHTML = '<div class="text-blue-400">正在生成模拟高保真数据...</div>';
+            // 此处保留你原有的复杂生成逻辑
+        });
+    </script>
+</body>
+</html>
