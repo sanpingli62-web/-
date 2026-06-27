@@ -1,28 +1,20 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -38,14 +30,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 1. 修复了缩进：path 必须在 with 的下一级
-          path: '.'
-          # 2. 新增：强制指定一个唯一的产物名称
-          name: 'my-unique-pages-artifact'
+          path: '.' 
+          name: 'my-unique-site' # 🌟 核心修改1：强制指定一个独一无二的名字，避开冲突
           
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
         with:
-          # 3. 新增：告诉部署步骤只读取上面指定的那个产物
-          artifact_name: 'my-unique-pages-artifact'
+          artifact_name: 'my-unique-site' # 🌟 核心修改2：告诉部署步骤，只认准这个名字
