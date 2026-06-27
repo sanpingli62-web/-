@@ -40,12 +40,13 @@
             // 这里保留了核心逻辑的结构
             setTimeout(() => {
                 let results = "";
-                for(let i=0; i<Math.min(count, 50); i++) {
+                for(let i=0; i<count; i++) {
+
                     results += `HEX: ${Math.random().toString(16).substring(2, 18).toUpperCase()}<br>`;
                 }
                 container.innerHTML = results;
             }, 800);
         };
     </script>
-</body>
+<
 </html>
