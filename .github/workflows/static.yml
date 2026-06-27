@@ -31,12 +31,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-        path: '.'
+          # 1. 修复了缩进：path 必须在 with 的下一级
+          path: '.'
+          # 2. 新增：强制指定一个唯一的产物名称
+          name: 'my-unique-pages-artifact'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          # 3. 新增：告诉部署步骤只读取上面指定的那个产物
+          artifact_name: 'my-unique-pages-artifact'
