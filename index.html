@@ -50,3 +50,32 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红色预警：高真进制引擎</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #0f0505; color: #f87171; }
+        .bg-red-glow { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-xl mx-auto bg-slate-950 border border-red-900 rounded-2xl p-6 bg-red-glow text-center">
+        <h1 class="text-2xl font-bold text-red-500 mb-6">Houston Hex Gen (Red Edition)</h1>
+        <button id="generate-btn" class="w-full bg-red-700 hover:bg-red-600 text-white py-4 rounded-xl font-bold transition-all shadow-lg">启动红色引擎</button>
+        <div id="output-container" class="mt-6 text-red-400 font-mono text-sm text-left h-64 overflow-y-auto"></div>
+    </div>
+    <script>
+        lucide.createIcons();
+        document.getElementById('generate-btn').onclick = () => {
+             document.getElementById('output-container').innerHTML = "正在触发红色数据流...";
+        };
+    </script>
+</body>
+</html>
+
