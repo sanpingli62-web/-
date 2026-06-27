@@ -23,18 +23,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' 
-          name: 'my-unique-site' # 🌟 核心修改1：强制指定一个独一无二的名字，避开冲突
-          
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-        with:
-          artifact_name: 'my-unique-site' # 🌟 核心修改2：告诉部署步骤，只认准这个名字
